@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Gilmazon</h1>
+    <div class="grid">
+        {% for product in products %}
+        <div class="product-card">
+            <!-- Make the product card clickable -->
+            <a href="/product/{{ product[0] }}"> <!-- Link to product detail page -->
+                <img src="/image/{{ product[0] }}" alt="{{ product[0] }}">
+                <h2>{{ product[1] }}</h2>
+                <p class="type">{{ product[4] }}</p>
+                <p class="rarity">{{ product[3] }}</p>
+                <p class="price">{{ product[2] }}gp</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form action="/generate_store" method="POST">
+        <button type="submit">Restock Gilmore's Shop</button>
+    </form>
+
+</body>
+</html>
